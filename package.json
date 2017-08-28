@@ -18,6 +18,7 @@
         "lodash": "^4.17.4"
     },
     "dependencies": {
+        "animate.css": "^3.5.2",
         "bootstrap-material-design": "^0.5.10"
     }
 }

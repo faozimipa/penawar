@@ -7,9 +7,13 @@
     "require": {
         "php": ">=7.0.0",
         "fideloper/proxy": "~3.3",
-        "jadjoubran/laravel-angular": "^0.2.0",
+        "infyomlabs/laravel-generator": "5.4.x-dev",
+        "laracasts/flash": "^3.0",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.4.0",
+        "infyomlabs/swagger-generator": "dev-master",
+        "jlapp/swaggervel": "dev-master"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

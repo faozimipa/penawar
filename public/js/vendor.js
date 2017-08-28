@@ -1,1 +1,767 @@
-!function(t){function o(n){if(i[n])return i[n].exports;var e=i[n]={i:n,l:!1,exports:{}};return t[n].call(e.exports,e,e.exports,o),e.l=!0,e.exports}var i={};o.m=t,o.c=i,o.d=function(t,i,n){o.o(t,i)||Object.defineProperty(t,i,{configurable:!1,enumerable:!0,get:n})},o.n=function(t){var i=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(i,"a",i),i},o.o=function(t,o){return Object.prototype.hasOwnProperty.call(t,o)},o.p="",o(o.s=36)}({36:function(t,o,i){i(37),t.exports=i(38)},37:function(t,o){!function(t){function o(t){return void 0===t.which||"number"==typeof t.which&&t.which>0&&(!t.ctrlKey&&!t.metaKey&&!t.altKey&&8!=t.which&&9!=t.which&&13!=t.which&&16!=t.which&&17!=t.which&&20!=t.which&&27!=t.which)}function i(o){var i=t(o);i.prop("disabled")||i.closest(".form-group").addClass("is-focused")}function n(t,o){var i;return i=t.hasClass("checkbox-inline")||t.hasClass("radio-inline")?t:t.closest(".checkbox").length?t.closest(".checkbox"):t.closest(".radio"),i.toggleClass("disabled",o)}function e(o){var e=!1;(o.is(t.material.options.checkboxElements)||o.is(t.material.options.radioElements))&&(e=!0),o.closest("label").hover(function(){var o=t(this).find("input"),a=o.prop("disabled");e&&n(t(this),a),a||i(o)},function(){a(t(this).find("input"))})}function a(o){t(o).closest(".form-group").removeClass("is-focused")}t.expr[":"].notmdproc=function(o){return!t(o).data("mdproc")},t.material={options:{validate:!0,input:!0,ripples:!0,checkbox:!0,togglebutton:!0,radio:!0,arrive:!0,autofill:!1,withRipples:[".btn:not(.btn-link)",".card-image",".navbar a:not(.withoutripple)",".dropdown-menu a",".nav-tabs a:not(.withoutripple)",".withripple",".pagination li:not(.active):not(.disabled) a:not(.withoutripple)"].join(","),inputElements:"input.form-control, textarea.form-control, select.form-control",checkboxElements:".checkbox > label > input[type=checkbox], label.checkbox-inline > input[type=checkbox]",togglebuttonElements:".togglebutton > label > input[type=checkbox]",radioElements:".radio > label > input[type=radio], label.radio-inline > input[type=radio]"},checkbox:function(o){e(t(o||this.options.checkboxElements).filter(":notmdproc").data("mdproc",!0).after("<span class='checkbox-material'><span class='check'></span></span>"))},togglebutton:function(o){e(t(o||this.options.togglebuttonElements).filter(":notmdproc").data("mdproc",!0).after("<span class='toggle'></span>"))},radio:function(o){e(t(o||this.options.radioElements).filter(":notmdproc").data("mdproc",!0).after("<span class='circle'></span><span class='check'></span>"))},input:function(o){t(o||this.options.inputElements).filter(":notmdproc").data("mdproc",!0).each(function(){var o=t(this),i=o.closest(".form-group");0!==i.length||"hidden"===o.attr("type")||o.attr("hidden")||(o.wrap("<div class='form-group'></div>"),i=o.closest(".form-group")),o.attr("data-hint")&&(o.after("<p class='help-block'>"+o.attr("data-hint")+"</p>"),o.removeAttr("data-hint"));var n={"input-lg":"form-group-lg","input-sm":"form-group-sm"};if(t.each(n,function(t,n){o.hasClass(t)&&(o.removeClass(t),i.addClass(n))}),o.hasClass("floating-label")){var e=o.attr("placeholder");o.attr("placeholder",null).removeClass("floating-label");var a=o.attr("id"),r="";a&&(r="for='"+a+"'"),i.addClass("label-floating"),o.after("<label "+r+"class='control-label'>"+e+"</label>")}null!==o.val()&&"undefined"!=o.val()&&""!==o.val()||i.addClass("is-empty"),i.find("input[type=file]").length>0&&i.addClass("is-fileinput")})},attachInputEventHandlers:function(){var n=this.options.validate;t(document).on("keydown paste",".form-control",function(i){o(i)&&t(this).closest(".form-group").removeClass("is-empty")}).on("keyup change",".form-control",function(){var o=t(this),i=o.closest(".form-group"),e=void 0===o[0].checkValidity||o[0].checkValidity();""===o.val()?i.addClass("is-empty"):i.removeClass("is-empty"),n&&(e?i.removeClass("has-error"):i.addClass("has-error"))}).on("focus",".form-control, .form-group.is-fileinput",function(){i(this)}).on("blur",".form-control, .form-group.is-fileinput",function(){a(this)}).on("change",".form-group input",function(){var o=t(this);if("file"!=o.attr("type")){var i=o.closest(".form-group");o.val()?i.removeClass("is-empty"):i.addClass("is-empty")}}).on("change",".form-group.is-fileinput input[type='file']",function(){var o=t(this),i=o.closest(".form-group"),n="";t.each(this.files,function(t,o){n+=o.name+", "}),n=n.substring(0,n.length-2),n?i.removeClass("is-empty"):i.addClass("is-empty"),i.find("input.form-control[readonly]").val(n)})},ripples:function(o){t(o||this.options.withRipples).ripples()},autofill:function(){var o=setInterval(function(){t("input[type!=checkbox]").each(function(){var o=t(this);o.val()&&o.val()!==o.attr("value")&&o.trigger("change")})},100);setTimeout(function(){clearInterval(o)},1e4)},attachAutofillEventHandlers:function(){var o;t(document).on("focus","input",function(){var i=t(this).parents("form").find("input").not("[type=file]");o=setInterval(function(){i.each(function(){var o=t(this);o.val()!==o.attr("value")&&o.trigger("change")})},100)}).on("blur",".form-group input",function(){clearInterval(o)})},init:function(o){this.options=t.extend({},this.options,o);var i=t(document);t.fn.ripples&&this.options.ripples&&this.ripples(),this.options.input&&(this.input(),this.attachInputEventHandlers()),this.options.checkbox&&this.checkbox(),this.options.togglebutton&&this.togglebutton(),this.options.radio&&this.radio(),this.options.autofill&&(this.autofill(),this.attachAutofillEventHandlers()),document.arrive&&this.options.arrive&&(t.fn.ripples&&this.options.ripples&&i.arrive(this.options.withRipples,function(){t.material.ripples(t(this))}),this.options.input&&i.arrive(this.options.inputElements,function(){t.material.input(t(this))}),this.options.checkbox&&i.arrive(this.options.checkboxElements,function(){t.material.checkbox(t(this))}),this.options.radio&&i.arrive(this.options.radioElements,function(){t.material.radio(t(this))}),this.options.togglebutton&&i.arrive(this.options.togglebuttonElements,function(){t.material.togglebutton(t(this))}))}}}(jQuery)},38:function(t,o){!function(t,o,i,n){"use strict";function e(o,i){r=this,this.element=t(o),this.options=t.extend({},s,i),this._defaults=s,this._name=a,this.init()}var a="ripples",r=null,s={};e.prototype.init=function(){var i=this.element;i.on("mousedown touchstart",function(n){if(!r.isTouch()||"mousedown"!==n.type){i.find(".ripple-container").length||i.append('<div class="ripple-container"></div>');var e=i.children(".ripple-container"),a=r.getRelY(e,n),s=r.getRelX(e,n);if(a||s){var l=r.getRipplesColor(i),p=t("<div></div>");p.addClass("ripple").css({left:s,top:a,"background-color":l}),e.append(p),function(){o.getComputedStyle(p[0]).opacity}(),r.rippleOn(i,p),setTimeout(function(){r.rippleEnd(p)},500),i.on("mouseup mouseleave touchend",function(){p.data("mousedown","off"),"off"===p.data("animating")&&r.rippleOut(p)})}}})},e.prototype.getNewSize=function(t,o){return Math.max(t.outerWidth(),t.outerHeight())/o.outerWidth()*2.5},e.prototype.getRelX=function(t,o){var i=t.offset();return r.isTouch()?(o=o.originalEvent,1===o.touches.length&&o.touches[0].pageX-i.left):o.pageX-i.left},e.prototype.getRelY=function(t,o){var i=t.offset();return r.isTouch()?(o=o.originalEvent,1===o.touches.length&&o.touches[0].pageY-i.top):o.pageY-i.top},e.prototype.getRipplesColor=function(t){return t.data("ripple-color")?t.data("ripple-color"):o.getComputedStyle(t[0]).color},e.prototype.hasTransitionSupport=function(){var t=i.body||i.documentElement,o=t.style;return void 0!==o.transition||void 0!==o.WebkitTransition||void 0!==o.MozTransition||void 0!==o.MsTransition||void 0!==o.OTransition},e.prototype.isTouch=function(){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)},e.prototype.rippleEnd=function(t){t.data("animating","off"),"off"===t.data("mousedown")&&r.rippleOut(t)},e.prototype.rippleOut=function(t){t.off(),r.hasTransitionSupport()?t.addClass("ripple-out"):t.animate({opacity:0},100,function(){t.trigger("transitionend")}),t.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",function(){t.remove()})},e.prototype.rippleOn=function(t,o){var i=r.getNewSize(t,o);r.hasTransitionSupport()?o.css({"-ms-transform":"scale("+i+")","-moz-transform":"scale("+i+")","-webkit-transform":"scale("+i+")",transform:"scale("+i+")"}).addClass("ripple-on").data("animating","on").data("mousedown","on"):o.animate({width:2*Math.max(t.outerWidth(),t.outerHeight()),height:2*Math.max(t.outerWidth(),t.outerHeight()),"margin-left":-1*Math.max(t.outerWidth(),t.outerHeight()),"margin-top":-1*Math.max(t.outerWidth(),t.outerHeight()),opacity:.2},500,function(){o.trigger("transitionend")})},t.fn.ripples=function(o){return this.each(function(){t.data(this,"plugin_"+a)||t.data(this,"plugin_"+a,new e(this,o))})}}(jQuery,window,document)}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 36:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(37);
+module.exports = __webpack_require__(38);
+
+
+/***/ }),
+
+/***/ 37:
+/***/ (function(module, exports) {
+
+/* globals jQuery */
+
+(function ($) {
+  // Selector to select only not already processed elements
+  $.expr[":"].notmdproc = function (obj) {
+    if ($(obj).data("mdproc")) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  function _isChar(evt) {
+    if (typeof evt.which == "undefined") {
+      return true;
+    } else if (typeof evt.which == "number" && evt.which > 0) {
+      return (
+        !evt.ctrlKey
+        && !evt.metaKey
+        && !evt.altKey
+        && evt.which != 8  // backspace
+        && evt.which != 9  // tab
+        && evt.which != 13 // enter
+        && evt.which != 16 // shift
+        && evt.which != 17 // ctrl
+        && evt.which != 20 // caps lock
+        && evt.which != 27 // escape
+      );
+    }
+    return false;
+  }
+
+  function _addFormGroupFocus(element) {
+    var $element = $(element);
+    if (!$element.prop('disabled')) {  // this is showing as undefined on chrome but works fine on firefox??
+      $element.closest(".form-group").addClass("is-focused");
+    }
+  }
+
+  function _toggleDisabledState($element, state) {
+    var $target;
+    if ($element.hasClass('checkbox-inline') || $element.hasClass('radio-inline')) {
+      $target = $element;
+    } else {
+      $target = $element.closest('.checkbox').length ? $element.closest('.checkbox') : $element.closest('.radio');
+    }
+    return $target.toggleClass('disabled', state);
+  }
+
+  function _toggleTypeFocus($input) {
+    var disabledToggleType = false;
+    if ($input.is($.material.options.checkboxElements) || $input.is($.material.options.radioElements)) {
+      disabledToggleType = true;
+    }
+    $input.closest('label').hover(function () {
+        var $i = $(this).find('input');
+        var isDisabled = $i.prop('disabled'); // hack because the _addFormGroupFocus() wasn't identifying the property on chrome
+        if (disabledToggleType) {
+          _toggleDisabledState($(this), isDisabled);
+        }
+        if (!isDisabled) {
+          _addFormGroupFocus($i);     // need to find the input so we can check disablement
+        }
+      },
+      function () {
+        _removeFormGroupFocus($(this).find('input'));
+      });
+  }
+
+  function _removeFormGroupFocus(element) {
+    $(element).closest(".form-group").removeClass("is-focused"); // remove class from form-group
+  }
+
+  $.material = {
+    "options": {
+      // These options set what will be started by $.material.init()
+      "validate": true,
+      "input": true,
+      "ripples": true,
+      "checkbox": true,
+      "togglebutton": true,
+      "radio": true,
+      "arrive": true,
+      "autofill": false,
+
+      "withRipples": [
+        ".btn:not(.btn-link)",
+        ".card-image",
+        ".navbar a:not(.withoutripple)",
+        ".dropdown-menu a",
+        ".nav-tabs a:not(.withoutripple)",
+        ".withripple",
+        ".pagination li:not(.active):not(.disabled) a:not(.withoutripple)"
+      ].join(","),
+      "inputElements": "input.form-control, textarea.form-control, select.form-control",
+      "checkboxElements": ".checkbox > label > input[type=checkbox], label.checkbox-inline > input[type=checkbox]",
+      "togglebuttonElements": ".togglebutton > label > input[type=checkbox]",
+      "radioElements": ".radio > label > input[type=radio], label.radio-inline > input[type=radio]"
+    },
+    "checkbox": function (selector) {
+      // Add fake-checkbox to material checkboxes
+      var $input = $((selector) ? selector : this.options.checkboxElements)
+        .filter(":notmdproc")
+        .data("mdproc", true)
+        .after("<span class='checkbox-material'><span class='check'></span></span>");
+
+      _toggleTypeFocus($input);
+    },
+    "togglebutton": function (selector) {
+      // Add fake-checkbox to material checkboxes
+      var $input = $((selector) ? selector : this.options.togglebuttonElements)
+        .filter(":notmdproc")
+        .data("mdproc", true)
+        .after("<span class='toggle'></span>");
+
+      _toggleTypeFocus($input);
+    },
+    "radio": function (selector) {
+      // Add fake-radio to material radios
+      var $input = $((selector) ? selector : this.options.radioElements)
+        .filter(":notmdproc")
+        .data("mdproc", true)
+        .after("<span class='circle'></span><span class='check'></span>");
+
+      _toggleTypeFocus($input);
+    },
+    "input": function (selector) {
+      $((selector) ? selector : this.options.inputElements)
+        .filter(":notmdproc")
+        .data("mdproc", true)
+        .each(function () {
+          var $input = $(this);
+
+          // Requires form-group standard markup (will add it if necessary)
+          var $formGroup = $input.closest(".form-group"); // note that form-group may be grandparent in the case of an input-group
+          if ($formGroup.length === 0 && $input.attr('type') !== "hidden" && !$input.attr('hidden')) {
+            $input.wrap("<div class='form-group'></div>");
+            $formGroup = $input.closest(".form-group"); // find node after attached (otherwise additional attachments don't work)
+          }
+
+          // Legacy - Add hint label if using the old shorthand data-hint attribute on the input
+          if ($input.attr("data-hint")) {
+            $input.after("<p class='help-block'>" + $input.attr("data-hint") + "</p>");
+            $input.removeAttr("data-hint");
+          }
+
+          // Legacy - Change input-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
+          var legacySizes = {
+            "input-lg": "form-group-lg",
+            "input-sm": "form-group-sm"
+          };
+          $.each(legacySizes, function (legacySize, standardSize) {
+            if ($input.hasClass(legacySize)) {
+              $input.removeClass(legacySize);
+              $formGroup.addClass(standardSize);
+            }
+          });
+
+          // Legacy - Add label-floating if using old shorthand <input class="floating-label" placeholder="foo">
+          if ($input.hasClass("floating-label")) {
+            var placeholder = $input.attr("placeholder");
+            $input.attr("placeholder", null).removeClass("floating-label");
+            var id = $input.attr("id");
+            var forAttribute = "";
+            if (id) {
+              forAttribute = "for='" + id + "'";
+            }
+            $formGroup.addClass("label-floating");
+            $input.after("<label " + forAttribute + "class='control-label'>" + placeholder + "</label>");
+          }
+
+          // Set as empty if is empty (damn I must improve this...)
+          if ($input.val() === null || $input.val() == "undefined" || $input.val() === "") {
+            $formGroup.addClass("is-empty");
+          }
+
+          // Support for file input
+          if ($formGroup.find("input[type=file]").length > 0) {
+            $formGroup.addClass("is-fileinput");
+          }
+        });
+    },
+    "attachInputEventHandlers": function () {
+      var validate = this.options.validate;
+
+      $(document)
+        .on("keydown paste", ".form-control", function (e) {
+          if (_isChar(e)) {
+            $(this).closest(".form-group").removeClass("is-empty");
+          }
+        })
+        .on("keyup change", ".form-control", function () {
+          var $input = $(this);
+          var $formGroup = $input.closest(".form-group");
+          var isValid = (typeof $input[0].checkValidity === "undefined" || $input[0].checkValidity());
+
+          if ($input.val() === "") {
+            $formGroup.addClass("is-empty");
+          }
+          else {
+            $formGroup.removeClass("is-empty");
+          }
+
+          // Validation events do not bubble, so they must be attached directly to the input: http://jsfiddle.net/PEpRM/1/
+          //  Further, even the bind method is being caught, but since we are already calling #checkValidity here, just alter
+          //  the form-group on change.
+          //
+          // NOTE: I'm not sure we should be intervening regarding validation, this seems better as a README and snippet of code.
+          //        BUT, I've left it here for backwards compatibility.
+          if (validate) {
+            if (isValid) {
+              $formGroup.removeClass("has-error");
+            }
+            else {
+              $formGroup.addClass("has-error");
+            }
+          }
+        })
+        .on("focus", ".form-control, .form-group.is-fileinput", function () {
+          _addFormGroupFocus(this);
+        })
+        .on("blur", ".form-control, .form-group.is-fileinput", function () {
+          _removeFormGroupFocus(this);
+        })
+        // make sure empty is added back when there is a programmatic value change.
+        //  NOTE: programmatic changing of value using $.val() must trigger the change event i.e. $.val('x').trigger('change')
+        .on("change", ".form-group input", function () {
+          var $input = $(this);
+          if ($input.attr("type") == "file") {
+            return;
+          }
+
+          var $formGroup = $input.closest(".form-group");
+          var value = $input.val();
+          if (value) {
+            $formGroup.removeClass("is-empty");
+          } else {
+            $formGroup.addClass("is-empty");
+          }
+        })
+        // set the fileinput readonly field with the name of the file
+        .on("change", ".form-group.is-fileinput input[type='file']", function () {
+          var $input = $(this);
+          var $formGroup = $input.closest(".form-group");
+          var value = "";
+          $.each(this.files, function (i, file) {
+            value += file.name + ", ";
+          });
+          value = value.substring(0, value.length - 2);
+          if (value) {
+            $formGroup.removeClass("is-empty");
+          } else {
+            $formGroup.addClass("is-empty");
+          }
+          $formGroup.find("input.form-control[readonly]").val(value);
+        });
+    },
+    "ripples": function (selector) {
+      $((selector) ? selector : this.options.withRipples).ripples();
+    },
+    "autofill": function () {
+      // This part of code will detect autofill when the page is loading (username and password inputs for example)
+      var loading = setInterval(function () {
+        $("input[type!=checkbox]").each(function () {
+          var $this = $(this);
+          if ($this.val() && $this.val() !== $this.attr("value")) {
+            $this.trigger("change");
+          }
+        });
+      }, 100);
+
+      // After 10 seconds we are quite sure all the needed inputs are autofilled then we can stop checking them
+      setTimeout(function () {
+        clearInterval(loading);
+      }, 10000);
+    },
+    "attachAutofillEventHandlers": function () {
+      // Listen on inputs of the focused form (because user can select from the autofill dropdown only when the input has focus)
+      var focused;
+      $(document)
+        .on("focus", "input", function () {
+          var $inputs = $(this).parents("form").find("input").not("[type=file]");
+          focused = setInterval(function () {
+            $inputs.each(function () {
+              var $this = $(this);
+              if ($this.val() !== $this.attr("value")) {
+                $this.trigger("change");
+              }
+            });
+          }, 100);
+        })
+        .on("blur", ".form-group input", function () {
+          clearInterval(focused);
+        });
+    },
+    "init": function (options) {
+      this.options = $.extend({}, this.options, options);
+      var $document = $(document);
+
+      if ($.fn.ripples && this.options.ripples) {
+        this.ripples();
+      }
+      if (this.options.input) {
+        this.input();
+        this.attachInputEventHandlers();
+      }
+      if (this.options.checkbox) {
+        this.checkbox();
+      }
+      if (this.options.togglebutton) {
+        this.togglebutton();
+      }
+      if (this.options.radio) {
+        this.radio();
+      }
+      if (this.options.autofill) {
+        this.autofill();
+        this.attachAutofillEventHandlers();
+      }
+
+      if (document.arrive && this.options.arrive) {
+        if ($.fn.ripples && this.options.ripples) {
+          $document.arrive(this.options.withRipples, function () {
+            $.material.ripples($(this));
+          });
+        }
+        if (this.options.input) {
+          $document.arrive(this.options.inputElements, function () {
+            $.material.input($(this));
+          });
+        }
+        if (this.options.checkbox) {
+          $document.arrive(this.options.checkboxElements, function () {
+            $.material.checkbox($(this));
+          });
+        }
+        if (this.options.radio) {
+          $document.arrive(this.options.radioElements, function () {
+            $.material.radio($(this));
+          });
+        }
+        if (this.options.togglebutton) {
+          $document.arrive(this.options.togglebuttonElements, function () {
+            $.material.togglebutton($(this));
+          });
+        }
+
+      }
+    }
+  };
+
+})(jQuery);
+
+
+/***/ }),
+
+/***/ 38:
+/***/ (function(module, exports) {
+
+/* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
+/* globals jQuery, navigator */
+
+(function($, window, document, undefined) {
+
+  "use strict";
+
+  /**
+   * Define the name of the plugin
+   */
+  var ripples = "ripples";
+
+
+  /**
+   * Get an instance of the plugin
+   */
+  var self = null;
+
+
+  /**
+   * Define the defaults of the plugin
+   */
+  var defaults = {};
+
+
+  /**
+   * Create the main plugin function
+   */
+  function Ripples(element, options) {
+    self = this;
+
+    this.element = $(element);
+
+    this.options = $.extend({}, defaults, options);
+
+    this._defaults = defaults;
+    this._name = ripples;
+
+    this.init();
+  }
+
+
+  /**
+   * Initialize the plugin
+   */
+  Ripples.prototype.init = function() {
+    var $element  = this.element;
+
+    $element.on("mousedown touchstart", function(event) {
+      /**
+       * Verify if the user is just touching on a device and return if so
+       */
+      if(self.isTouch() && event.type === "mousedown") {
+        return;
+      }
+
+
+      /**
+       * Verify if the current element already has a ripple wrapper element and
+       * creates if it doesn't
+       */
+      if(!($element.find(".ripple-container").length)) {
+        $element.append("<div class=\"ripple-container\"></div>");
+      }
+
+
+      /**
+       * Find the ripple wrapper
+       */
+      var $wrapper = $element.children(".ripple-container");
+
+
+      /**
+       * Get relY and relX positions
+       */
+      var relY = self.getRelY($wrapper, event);
+      var relX = self.getRelX($wrapper, event);
+
+
+      /**
+       * If relY and/or relX are false, return the event
+       */
+      if(!relY && !relX) {
+        return;
+      }
+
+
+      /**
+       * Get the ripple color
+       */
+      var rippleColor = self.getRipplesColor($element);
+
+
+      /**
+       * Create the ripple element
+       */
+      var $ripple = $("<div></div>");
+
+      $ripple
+      .addClass("ripple")
+      .css({
+        "left": relX,
+        "top": relY,
+        "background-color": rippleColor
+      });
+
+
+      /**
+       * Append the ripple to the wrapper
+       */
+      $wrapper.append($ripple);
+
+
+      /**
+       * Make sure the ripple has the styles applied (ugly hack but it works)
+       */
+      (function() { return window.getComputedStyle($ripple[0]).opacity; })();
+
+
+      /**
+       * Turn on the ripple animation
+       */
+      self.rippleOn($element, $ripple);
+
+
+      /**
+       * Call the rippleEnd function when the transition "on" ends
+       */
+      setTimeout(function() {
+        self.rippleEnd($ripple);
+      }, 500);
+
+
+      /**
+       * Detect when the user leaves the element
+       */
+      $element.on("mouseup mouseleave touchend", function() {
+        $ripple.data("mousedown", "off");
+
+        if($ripple.data("animating") === "off") {
+          self.rippleOut($ripple);
+        }
+      });
+
+    });
+  };
+
+
+  /**
+   * Get the new size based on the element height/width and the ripple width
+   */
+  Ripples.prototype.getNewSize = function($element, $ripple) {
+
+    return (Math.max($element.outerWidth(), $element.outerHeight()) / $ripple.outerWidth()) * 2.5;
+  };
+
+
+  /**
+   * Get the relX
+   */
+  Ripples.prototype.getRelX = function($wrapper,  event) {
+    var wrapperOffset = $wrapper.offset();
+
+    if(!self.isTouch()) {
+      /**
+       * Get the mouse position relative to the ripple wrapper
+       */
+      return event.pageX - wrapperOffset.left;
+    } else {
+      /**
+       * Make sure the user is using only one finger and then get the touch
+       * position relative to the ripple wrapper
+       */
+      event = event.originalEvent;
+
+      if(event.touches.length === 1) {
+        return event.touches[0].pageX - wrapperOffset.left;
+      }
+
+      return false;
+    }
+  };
+
+
+  /**
+   * Get the relY
+   */
+  Ripples.prototype.getRelY = function($wrapper, event) {
+    var wrapperOffset = $wrapper.offset();
+
+    if(!self.isTouch()) {
+      /**
+       * Get the mouse position relative to the ripple wrapper
+       */
+      return event.pageY - wrapperOffset.top;
+    } else {
+      /**
+       * Make sure the user is using only one finger and then get the touch
+       * position relative to the ripple wrapper
+       */
+      event = event.originalEvent;
+
+      if(event.touches.length === 1) {
+        return event.touches[0].pageY - wrapperOffset.top;
+      }
+
+      return false;
+    }
+  };
+
+
+  /**
+   * Get the ripple color
+   */
+  Ripples.prototype.getRipplesColor = function($element) {
+
+    var color = $element.data("ripple-color") ? $element.data("ripple-color") : window.getComputedStyle($element[0]).color;
+
+    return color;
+  };
+
+
+  /**
+   * Verify if the client browser has transistion support
+   */
+  Ripples.prototype.hasTransitionSupport = function() {
+    var thisBody  = document.body || document.documentElement;
+    var thisStyle = thisBody.style;
+
+    var support = (
+      thisStyle.transition !== undefined ||
+      thisStyle.WebkitTransition !== undefined ||
+      thisStyle.MozTransition !== undefined ||
+      thisStyle.MsTransition !== undefined ||
+      thisStyle.OTransition !== undefined
+    );
+
+    return support;
+  };
+
+
+  /**
+   * Verify if the client is using a mobile device
+   */
+  Ripples.prototype.isTouch = function() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
+
+
+  /**
+   * End the animation of the ripple
+   */
+  Ripples.prototype.rippleEnd = function($ripple) {
+    $ripple.data("animating", "off");
+
+    if($ripple.data("mousedown") === "off") {
+      self.rippleOut($ripple);
+    }
+  };
+
+
+  /**
+   * Turn off the ripple effect
+   */
+  Ripples.prototype.rippleOut = function($ripple) {
+    $ripple.off();
+
+    if(self.hasTransitionSupport()) {
+      $ripple.addClass("ripple-out");
+    } else {
+      $ripple.animate({"opacity": 0}, 100, function() {
+        $ripple.trigger("transitionend");
+      });
+    }
+
+    $ripple.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
+      $ripple.remove();
+    });
+  };
+
+
+  /**
+   * Turn on the ripple effect
+   */
+  Ripples.prototype.rippleOn = function($element, $ripple) {
+    var size = self.getNewSize($element, $ripple);
+
+    if(self.hasTransitionSupport()) {
+      $ripple
+      .css({
+        "-ms-transform": "scale(" + size + ")",
+        "-moz-transform": "scale(" + size + ")",
+        "-webkit-transform": "scale(" + size + ")",
+        "transform": "scale(" + size + ")"
+      })
+      .addClass("ripple-on")
+      .data("animating", "on")
+      .data("mousedown", "on");
+    } else {
+      $ripple.animate({
+        "width": Math.max($element.outerWidth(), $element.outerHeight()) * 2,
+        "height": Math.max($element.outerWidth(), $element.outerHeight()) * 2,
+        "margin-left": Math.max($element.outerWidth(), $element.outerHeight()) * (-1),
+        "margin-top": Math.max($element.outerWidth(), $element.outerHeight()) * (-1),
+        "opacity": 0.2
+      }, 500, function() {
+        $ripple.trigger("transitionend");
+      });
+    }
+  };
+
+
+  /**
+   * Create the jquery plugin function
+   */
+  $.fn.ripples = function(options) {
+    return this.each(function() {
+      if(!$.data(this, "plugin_" + ripples)) {
+        $.data(this, "plugin_" + ripples, new Ripples(this, options));
+      }
+    });
+  };
+
+})(jQuery, window, document);
+
+
+/***/ })
+
+/******/ });
