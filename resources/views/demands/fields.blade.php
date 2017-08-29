@@ -1,15 +1,15 @@
-
 <div class="form-group col-sm-12  label-floating">
     {!! Form::label('demand_product', 'Product',  ['class' => 'control-label']) !!}
-    {!! Form::text('demand_product', null, ['class' => 'form-control']) !!}
-    <span class="help-block">Please enter a valid Product name</span>
+    {!! Form::text('demand_product', null, ['class' => 'form-control', 'required'=>true]) !!}
+    <span class="help-block  with-errors">Please enter a valid Product name</span>
 </div>
 
 <div class="form-group col-sm-12  label-floating">
     {!! Form::label('demand_product_detail', 'Product Description',  ['class' => 'control-label']) !!}
-    {!! Form::textarea('demand_product_detail', null, ['class' => 'form-control', 'rows'=>3]) !!}
+    {!! Form::textarea('demand_product_detail', null, ['class' => 'form-control', 'rows'=>3, 'required'=>true]) !!}
     <span class="help-block">Please enter a valid Product description</span>
 </div>
+
 
 <div class="col-sm-6">
     <div class="input-group">
@@ -43,6 +43,45 @@
     {!! Form::number('demand_estimation_price_height', null, ['class' => 'form-control']) !!}
     <span class="help-block">Please enter a valid Batas Harga Atas</span>
 </div>
+
+
+
+<div class="form-group col-sm-6  label-floating">
+    {!! Form::label('demand_expired_date', 'Batas berlakunya permintaan ',  ['class' => 'control-label']) !!}
+    {!! Form::text('demand_expired_date', null, ['class' => 'form-control','id'=>'demand_expired_date']) !!}
+    <span class="help-block">Please enter a valid Batas berlakunya permintaan </span>
+</div>
+
+<div class="form-group col-sm-6  label-floating">
+    {!! Form::label('demand_due_date', 'Batas waktu penyediaan barang',  ['class' => 'control-label']) !!}
+    {!! Form::text('demand_due_date', null, ['class' => 'form-control', 'id' => 'demand_due_date']) !!}
+    <span class="help-block">Please enter a valid Batas Harga Atas</span>
+</div>
+
+<div class="form-group col-sm-6  label-floating">
+    {!! Form::label('demand_name', 'Name',  ['class' => 'control-label']) !!}
+    {!! Form::text('demand_name', null, ['class' => 'form-control', 'required'=>true]) !!}
+    <span class="help-block">Please enter your name</span>
+</div>
+
+<div class="form-group col-sm-6  label-floating">
+    {!! Form::label('demand_company', 'Company',  ['class' => 'control-label']) !!}
+    {!! Form::text('demand_company', null, ['class' => 'form-control']) !!}
+    <span class="help-block">Please enter your company name</span>
+</div>
+
+<div class="form-group col-sm-6  label-floating">
+    {!! Form::label('demand_phone', 'Phone',  ['class' => 'control-label']) !!}
+    {!! Form::text('demand_phone', null, ['class' => 'form-control', 'required'=>true]) !!}
+    <span class="help-block">Please enter a valid Phone number</span>
+</div>
+
+<div class="form-group col-sm-6  label-floating">
+    {!! Form::label('demand_email', 'Email',  ['class' => 'control-label']) !!}
+    {!! Form::text('demand_email', null, ['class' => 'form-control', 'required'=>true]) !!}
+    <span class="help-block">Please enter a valid Email</span>
+</div>
+
 
 
 <!-- Submit Field -->

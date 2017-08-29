@@ -10,7 +10,7 @@
                     <div class="panel-heading">Permintaan Penawaran</div>
 
                     <div class="panel-body">
-                        {!! Form::open(['route' => 'pp.request.post']) !!}
+                        {!! Form::open(['route' => 'pp.request.post','id'=>'demandForm', 'data-toggle'=>'validator', 'role'=>'form']) !!}
                             @include('demands.fields')
                         {!! Form::close() !!}
                     </div>
@@ -23,6 +23,7 @@
 @section('scripts')
 <script>
     $(document).ready(function(){
+        $('#demandForm').validator();
 
         var quantitiy=0;
         $('.quantity-right-plus').click(function(e){
@@ -54,6 +55,26 @@
                 $('#quantity').val(quantity - 1);
             }
         });
+
+        $('#demand_expired_date').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        });
+
+        $('#demand_due_date').daterangepicker({
+
+            singleDatePicker: true,
+            showDropdowns: true,
+            minDate: $('#demand_expired_date').val(),
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        });
+
+
 
     });
 </script>

@@ -19,7 +19,7 @@
     },
     "dependencies": {
         "animate.css": "^3.5.2",
-        "bootstrap-datepicker": "^1.7.1",
-        "bootstrap-material-design": "^0.5.10"
+        "bootstrap-material-design": "^0.5.10",
+        "bootstrap-validator": "^0.11.9"
     }
 }

@@ -16,7 +16,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
         [
             './node_modules/bootstrap-material-design/dist/js/material.js',
             './node_modules/bootstrap-material-design/dist/js/ripples.js',
-            './node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
+            './node_modules/bootstrap-validator/dist/validator.js',
 
         ],
         './public/js/vendor.js'
