@@ -36,8 +36,8 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;<li class="material-ripple  {{ (Request::is('/'))? 'active':''}}"><a href="{{ url('/') }}" >  Home </a></li>
-                        &nbsp;<li class="material-ripple {{ Route::is('pp.request')? 'active':'' }}"><a href="{{ route('pp.request') }}" > <i class="fa fa-star "></i>  Permintaan Penawaran </a></li>
+                        <li class="material-ripple  {{ (Request::is('/'))? 'active':''}}"><a href="{{ url('/') }}" > <i class="fa fa-home "></i> Home </a></li>
+                        <li class="material-ripple {{ Route::is('pp.request')? 'active':'' }}"><a href="{{ route('pp.request') }}" > <i class="fa fa-file"></i>  Permintaan Penawaran </a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
