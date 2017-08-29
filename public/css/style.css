@@ -1,0 +1,54 @@
+footer.page-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: #3f51b5;  /*rgb(198, 198, 198); */
+    color: rgba(255, 255, 255, 0.92);
+}
+
+footer.page-footer .container-fluid {
+    width: auto;
+}
+
+footer.page-footer .footer-copyright {
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+footer.page-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer.page-footer .title {
+    text-transform: uppercase;
+}
+
+footer.page-footer .call-to-action {
+    text-align: center;
+    padding-top: 1.3rem;
+    padding-bottom: 0.5rem;
+}
+
+footer.page-footer .call-to-action ul li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+footer.page-footer .social-section ul li {
+    display: inline-block;
+}
+
+footer.page-footer .social-section ul a {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+footer.page-footer ul {
+    list-style-type: none;
+    padding: 0;
+}

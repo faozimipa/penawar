@@ -9,7 +9,7 @@ return [
             'title'        => "PT TUMBAS SINERGI INDONESIA", // set false to total remove
             'description'  => 'PT TUMBAS SINERGI INDONESIA Online B2B Marketplace Indonesia yang menyediakan berbagai produk untuk kebutuhan bisnis Anda dengan harga grosir yang lebih murah', // set false to total remove
             'separator'    => ' - ',
-            'keywords'     => ['Tumbas', 'PT Tumbas Sinergi Indonesia','permintaan','penawaran'],
+            'keywords'     => ['FAOZI', 'Tumbas.in', 'Tumbas', 'PT Tumbas Sinergi Indonesia','permintaan','penawaran'],
             'canonical'    => false, // Set null for using Url::current(), set false to total remove
         ],
 
