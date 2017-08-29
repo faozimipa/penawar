@@ -7,11 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="FAOZI">
     {!! SEO::generate(true) !!}
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     @yield('css')
 </head>
 <body>
