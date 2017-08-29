@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" type="image/png" href="https://tumbas.in/profile/img/logotumbas.png" />
     <meta name="author" content="FAOZI">
     {!! SEO::generate(true) !!}
     <!-- Styles -->
@@ -35,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li class="material-ripple  {{ (Request::is('/'))? 'active':''}}"><a href="{{ url('/') }}" > <i class="fa fa-home "></i> Home </a></li>
+                        <li class="material-ripple  {{ (Request::is('/'))? 'active':''}}"><a href="{{ url('/') }}" > <i class="fa fa-home"></i> Home </a></li>
                         <li class="material-ripple {{ Route::is('pp.request')? 'active':'' }}"><a href="{{ route('pp.request') }}" > <i class="fa fa-file"></i>  Permintaan Penawaran </a></li>
                     </ul>
 
