@@ -206,5 +206,10 @@
     </style>
 @endsection
 @section('content')
-  @include('common.slider-home')
+
+    <div class="clearfix"></div>
+    @include('flash::message')
+    @include('common.slider-home')
+
+
 @endsection

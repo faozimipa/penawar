@@ -160,7 +160,17 @@ class DemandController extends AppBaseController
 
     public function permintaan_post(CreateDemandRequest $request)
     {
-         return $request->all();
+         //return $request->all();
+
+         $input = $request->all();
+         $input['status'] =0;
+
+        $this->demandRepository->create($input);
+
+        Flash::success('Permintaan berhasil di buat');
+
+        return redirect('/');
+
         //return view('demands.permintaan');
     }
 }

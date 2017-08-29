@@ -55,6 +55,26 @@
             }
         });
 
+        $('#demand_expired_date').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        });
+
+        $('#demand_due_date').daterangepicker({
+
+            singleDatePicker: true,
+            showDropdowns: true,
+            minDate: $('#demand_expired_date').val(),
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        });
+
+
+
     });
 </script>
 @endsection
