@@ -1,12 +1,12 @@
 <div class="form-group col-sm-12  label-floating">
     {!! Form::label('demand_product', 'Product',  ['class' => 'control-label']) !!}
-    {!! Form::text('demand_product', null, ['class' => 'form-control']) !!}
-    <span class="help-block">Please enter a valid Product name</span>
+    {!! Form::text('demand_product', null, ['class' => 'form-control', 'required'=>true]) !!}
+    <span class="help-block  with-errors">Please enter a valid Product name</span>
 </div>
 
 <div class="form-group col-sm-12  label-floating">
     {!! Form::label('demand_product_detail', 'Product Description',  ['class' => 'control-label']) !!}
-    {!! Form::textarea('demand_product_detail', null, ['class' => 'form-control', 'rows'=>3]) !!}
+    {!! Form::textarea('demand_product_detail', null, ['class' => 'form-control', 'rows'=>3, 'required'=>true]) !!}
     <span class="help-block">Please enter a valid Product description</span>
 </div>
 
@@ -59,7 +59,7 @@
 
 <div class="form-group col-sm-6  label-floating">
     {!! Form::label('demand_name', 'Name',  ['class' => 'control-label']) !!}
-    {!! Form::text('demand_name', null, ['class' => 'form-control']) !!}
+    {!! Form::text('demand_name', null, ['class' => 'form-control', 'required'=>true]) !!}
     <span class="help-block">Please enter your name</span>
 </div>
 
@@ -71,13 +71,13 @@
 
 <div class="form-group col-sm-6  label-floating">
     {!! Form::label('demand_phone', 'Phone',  ['class' => 'control-label']) !!}
-    {!! Form::text('demand_phone', null, ['class' => 'form-control']) !!}
+    {!! Form::text('demand_phone', null, ['class' => 'form-control', 'required'=>true]) !!}
     <span class="help-block">Please enter a valid Phone number</span>
 </div>
 
 <div class="form-group col-sm-6  label-floating">
     {!! Form::label('demand_email', 'Email',  ['class' => 'control-label']) !!}
-    {!! Form::text('demand_email', null, ['class' => 'form-control']) !!}
+    {!! Form::text('demand_email', null, ['class' => 'form-control', 'required'=>true]) !!}
     <span class="help-block">Please enter a valid Email</span>
 </div>
 
