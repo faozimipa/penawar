@@ -45,7 +45,9 @@ class Demand extends Model
         'demand_expired_date',
         'demand_due_date',
         'demand_phone',
-        'demand_email'
+        'demand_email',
+        'valid',
+        'status'
     ];
 
     /**
