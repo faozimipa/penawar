@@ -86,7 +86,7 @@
     <!--Copyright-->
     <div class="footer-copyright">
         <div class="container-fluid">
-            © 2017 Copyright: <a href="http://jakwir.com"> Made with <i class="fa fa-heart"> by PT Tumbas Sinergi Indonesia</i> </a>
+            © 2017 Copyright: <a href="http://jakwir.com"> Made with  <i class="fa fa-heart text-danger "></i>  by PT Tumbas Sinergi Indonesia</a>
 
         </div>
     </div>
