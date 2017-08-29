@@ -10,6 +10,7 @@
     <span class="help-block">Please enter a valid Product description</span>
 </div>
 
+
 <div class="col-sm-6">
     <div class="input-group">
         <span class="input-group-btn">
